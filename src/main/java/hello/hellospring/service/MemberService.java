@@ -8,9 +8,15 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
+    //command + shift+ t : test 생성
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //같은 db쓰기위해 memberRepository를 외부에서 생성해서 넣음
+    private final MemberRepository memberRepository;
 
+    public MemberService(MemberRepository memberRepository){
+        this.memberRepository = memberRepository;
+    }
     /**
     * 회원가입
     * */
@@ -41,4 +47,6 @@ public class MemberService {
     public Optional<Member> findOne(Long memberId){
         return memberRepository.findById(memberId);
     }
+
+
 }
