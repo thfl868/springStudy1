@@ -3,17 +3,21 @@ package hello.hellospring.service;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
     //command + shift+ t : test 생성
 
     //private final MemberRepository memberRepository = new MemoryMemberRepository();
-    //같은 db쓰기위해 memberRepository를 외부에서 생성해서 넣음
+    //같은 db쓰기위해 memberRepository를 외부에서 생성해서 넣발
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberService(MemberRepository memberRepository){
         this.memberRepository = memberRepository;
     }
