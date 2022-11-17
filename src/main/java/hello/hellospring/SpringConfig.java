@@ -1,5 +1,6 @@
 package hello.hellospring;
 
+import hello.hellospring.aop.TimeTraceAop;
 import hello.hellospring.repository.*;
 import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import javax.sql.DataSource;
 public class SpringConfig {
 
     private final MemberRepository memberRepository;
-
+    @Autowired
     public SpringConfig(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
@@ -30,8 +31,10 @@ public class SpringConfig {
 ////        return new JdbcMemberRepository(dataSource);
 ////        return new JdbcTemplateMemberRepository(dataSource);
 ////        return new JpaMemberRepository(em);
-//
-//
-//
+//    }
+
+//    @Bean
+//    public TimeTraceAop timeTraceAop(){
+//        return new TimeTraceAop();
 //    }
 }
